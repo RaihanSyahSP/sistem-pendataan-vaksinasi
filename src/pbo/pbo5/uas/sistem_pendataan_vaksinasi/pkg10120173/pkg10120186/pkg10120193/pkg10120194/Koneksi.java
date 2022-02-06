@@ -5,10 +5,10 @@ import java.sql.*;
 public class Koneksi {
     public static Connection getConnection()
     {
-        String user = "";
-        String pwd = "";
-        String host = "";
-        String db = "";
+        String user = "your username";
+        String pwd = "your password";
+        String host = " your host";
+        String db = "your db here";
         String urlValue = "";
         Connection conn = null;
         try {

@@ -19,7 +19,7 @@ public class Main {
             menu_utama();
          } else {
             System.out.println("DB Tidak Terkoneksi!");
-         }              
+         } 
     }
     
     public static void pilihanAdminUser(int pilihan) throws SQLException{
@@ -269,6 +269,7 @@ public class Main {
             {
                 DataBuilder.ClearConsole();
                 terimakasih();
+                DataBuilder.conn.close();
                 System.exit(0);
             }
             
