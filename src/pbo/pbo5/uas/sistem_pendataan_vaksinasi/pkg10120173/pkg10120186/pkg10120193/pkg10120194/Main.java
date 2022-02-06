@@ -14,6 +14,7 @@ public class Main {
     public static void main(String[] args) throws SQLException{
         Connection conn = Koneksi.getConnection();
         if (conn!=null){
+            DataBuilder dbbuilder = new DataBuilder(conn); //koneksi dipassing ke class DataBuilder
             selamat_datang();
             menu_utama();
          } else {

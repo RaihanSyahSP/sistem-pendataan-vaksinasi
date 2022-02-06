@@ -5,21 +5,22 @@ import java.sql.*;
 public class Koneksi {
     public static Connection getConnection()
     {
-        String user = "root";
-        String pwd = "";
-        String host = "localhost";
-        String db = "vaksin";
+        String user = "utndtofvt3xun1fz";
+        String pwd = "zUATltOJTLVe2c0DOHyx";
+        String host = "btefhtjatrzfphra3fpt-mysql.services.clever-cloud.com";
+        String db = "btefhtjatrzfphra3fpt";
         String urlValue = "";
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             urlValue = "jdbc:mysql://" + host + "/" + db + "?user=" + user + "&password=" + pwd;
             conn = DriverManager.getConnection(urlValue);
+            System.out.println("Koneksi Sukses");
         }catch (SQLException e){
             System.out.println("Koneksi Gagal " + e.toString());
         } catch(ClassNotFoundException e) {
             System.out.println("JDBC Driver tidak ditemukan");
-        }
+        } 
         return conn;
     }
 }

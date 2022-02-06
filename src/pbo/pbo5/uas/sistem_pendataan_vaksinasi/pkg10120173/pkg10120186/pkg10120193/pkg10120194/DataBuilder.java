@@ -9,7 +9,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class DataBuilder{
-    static Connection conn = Koneksi.getConnection(); //hubungkan dengan database
+    
+    static Connection conn;
+    // menerima koneksi dari Class Main
+    public DataBuilder(Connection conn) {
+        this.conn = conn;
+    }
     
     
 //    =================================
@@ -43,12 +48,12 @@ public class DataBuilder{
             } else {
                 System.out.println("Penambahan Data Gagal!");
             }
-                
+            
         } catch (SQLException e) {
             System.out.println("Pesan Error : " + e.toString());
-        }
+        } 
         
-    }
+    }    
     
     public static ArrayList<Orang> tampil_data_orang() throws SQLException {
         
@@ -118,7 +123,7 @@ public class DataBuilder{
         
     }
     
-        public static ArrayList<Orang> cari_nik (String nik) throws SQLException {            
+        public static ArrayList<Orang> cari_nik (String nik) throws SQLException {
             String sql ="SELECT * FROM orang where nik=?";
             PreparedStatement pStatement = conn.prepareStatement(sql);
             pStatement.setString(1,nik);
@@ -288,7 +293,7 @@ public class DataBuilder{
         }
         
     }
-     public static ArrayList<TempatVaksin> tampil_tempat_vaksin() throws SQLException{  
+     public static ArrayList<TempatVaksin> tampil_tempat_vaksin() throws SQLException{
         String sql ="SELECT * FROM tempat_vaksin";
         PreparedStatement pStatement = conn.prepareStatement(sql);
         ArrayList<TempatVaksin> data_tempatvaksin = new ArrayList<>();
@@ -318,7 +323,7 @@ public class DataBuilder{
          
     }
       
-        public static ArrayList<TempatVaksin> cari_nama_rs (String nama_rs) throws SQLException {            
+        public static ArrayList<TempatVaksin> cari_nama_rs (String nama_rs) throws SQLException {
             String sql ="SELECT * FROM tempat_vaksin where nama_rs=?";
             PreparedStatement pStatement = conn.prepareStatement(sql);
             pStatement.setString(1,nama_rs.toLowerCase());
@@ -356,7 +361,7 @@ public class DataBuilder{
             
     }
     
-    public static ArrayList<JoinNikWithKodeRs> tampil_tabel_join() throws SQLException{  
+    public static ArrayList<JoinNikWithKodeRs> tampil_tabel_join() throws SQLException{
         String sql = "SELECT orang.nik, nama, tempat_vaksin.kd_rs, nama_rs FROM orang INNER JOIN status_vaksin INNER JOIN tempat_vaksin ON orang.nik = status_vaksin.nik AND tempat_vaksin.kd_rs = status_vaksin.kd_rs";
         PreparedStatement pStatement = conn.prepareStatement(sql);
         ArrayList<JoinNikWithKodeRs> data_join = new ArrayList<>();
