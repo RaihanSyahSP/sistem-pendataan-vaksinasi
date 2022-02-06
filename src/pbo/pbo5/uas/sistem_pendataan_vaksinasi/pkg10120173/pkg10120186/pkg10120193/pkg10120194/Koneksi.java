@@ -5,10 +5,10 @@ import java.sql.*;
 public class Koneksi {
     public static Connection getConnection()
     {
-        String user = "utndtofvt3xun1fz";
-        String pwd = "zUATltOJTLVe2c0DOHyx";
-        String host = "btefhtjatrzfphra3fpt-mysql.services.clever-cloud.com";
-        String db = "btefhtjatrzfphra3fpt";
+        String user = "";
+        String pwd = "";
+        String host = "";
+        String db = "";
         String urlValue = "";
         Connection conn = null;
         try {
