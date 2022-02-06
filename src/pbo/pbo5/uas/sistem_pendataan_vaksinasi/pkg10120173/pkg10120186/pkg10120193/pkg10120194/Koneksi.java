@@ -15,7 +15,6 @@ public class Koneksi {
             Class.forName("com.mysql.jdbc.Driver");
             urlValue = "jdbc:mysql://" + host + "/" + db + "?user=" + user + "&password=" + pwd;
             conn = DriverManager.getConnection(urlValue);
-            System.out.println("Koneksi Sukses");
         }catch (SQLException e){
             System.out.println("Koneksi Gagal " + e.toString());
         } catch(ClassNotFoundException e) {
